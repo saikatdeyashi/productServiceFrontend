@@ -3,58 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Create Product</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Welcome to Product Service</title>
+  <link rel="stylesheet" href="css/homeStyle.css">
 </head>
 
 <body>
-  <form action="#" method="post" id="createform" class="create">
-    <fieldset class="box">
-      <legend>Create your own product</legend>
-      <label class="fields">Title :</label> <br />
-      <input name="title" class="input" placeholder="Product Title" /> <br />
-      <label class="fields">Image Link :</label> <br />
-      <input name="image" class="input" placeholder="ImageUrl" /> <br />
-      <label class="fields">Description :</label> <br />
-      <input name="description" class="input" placeholder="Short description" /> <br />
-      <label class="fields">Category :</label> <br />
-      <input name="category" class="input" placeholder="Category of the Product" /> <br />
-      <label class="fields">Price :</label> <br />
-      <input name="price" class="input" placeholder="Price of the product" /> <br />
-      <center>
-        <button class="click" type="submit"> Submit</button>
-      </center>
+  <fieldset class="box">
+    <legend>Available APIs For Product Service</legend>
 
-    </fieldset>
-  </form>
+    <a href="createProduct.html"> <button class="call" type="submit" role="button"> Create A Product</button> <br /> </a>
 
-  <script>
-    let form = document.querySelector('form');
-    form.addEventListener('submit', handleSubmit);
+    <button class="call" type="submit" role="button"> Get Product by ID</button> <br />
+    <button class="call" type="submit" role="button"> Get All Products</button> <br />
+    <button class="call" type="submit" role="button"> Delete a Product</button> <br />
 
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      let formData = new FormData(form);
-      let data = Object.fromEntries(formData);
-      let jsonData = JSON.stringify(data);
-
-      fetch('https://saikat-product-services-f1726f7df2c4.herokuapp.com/products', {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: jsonData
-        }).then(res => res.json())
-        .then(json => console.log(json))
-    }
-  </script>
-
-
-
-
-
-
-
-
+  </fieldset>
 </body>
