@@ -39,7 +39,7 @@
       let data = Object.fromEntries(formData);
       let jsonData = JSON.stringify(data);
 
-      fetch('http://localhost:8080/products', {
+      fetch('https://saikat-product-services-f1726f7df2c4.herokuapp.com/products', {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
