@@ -73,11 +73,12 @@
       let data = Object.fromEntries(formData);
       let jsonData = JSON.stringify(data);
 
-      let herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products';
-      let localUrl = 'http://localhost:8080/products';
+      const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products';
+      const localUrl = 'http://localhost:8080/products';
+      const selfUrl = '';
+      const fakeStoreUrl = 'https://fakestoreapi.com/products/';
 
-      fetch(herokuUrl, {
-      //fetch(localUrl, {
+      fetch(fakeStoreUrl, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'
