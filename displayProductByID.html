@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Get a Product by ID</title>
+  <link rel="stylesheet" href="css/displayStyleSingle.css">
+</head>
+
+
+<body>
+  <form id="productIdForm" class="create">
+    <fieldset class="box">
+      <legend>Get a Product by ID</legend>
+
+      <table class="table">
+        <tr>
+          <th> <input id="productIdInput" class="input" placeholder="Product ID" /> <br /> </th>
+          <th> <button class="click" type="submit"> Search</button> </th>
+        </tr>
+      </table>
+
+    </fieldset>
+  </form>
+
+
+  <div class="container">
+    <img src="" class="product-image">
+    <div id="productDetailsContainer" class="product-details">
+    </div>
+  </div>
+
+  <script>
+      document.getElementById('productIdForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const productId = document.getElementById('productIdInput').value.trim();
+
+        if (!productId) {
+          alert('Please enter a product ID.');
+          return;
+        }
+
+        const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products/' + encodeURIComponent(productId);
+        //const selfUrl = '' + encodeURIComponent(productId);
+        const localUrl = 'http://localhost:8080/products/' + encodeURIComponent(productId);
+        const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);
+
+        fetch(herokuUrl)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            displayProductDetails(data);
+            displayProductImage(data.imageUrl);
+          })
+          .catch(error => {
+            console.error('Error fetching product details:', error);
+            alert('Failed to fetch product. Please try again.');
+          });
+      });
+
+      function displayProductDetails(product) {
+        const container = document.getElementById('productDetailsContainer');
+
+        container.innerHTML = `
+          <h2>${product.title}</h2>
+          <b><p class="price"> ₹ ${product.price}</p></b>
+          <p>${product.description}</p>
+      `;
+      }
+
+      function displayProductImage(imageUrl) {
+        const imageElement = document.querySelector('.product-image');
+        imageElement.src = imageUrl;
+      }
+    </script>
+
+
+
+</body>

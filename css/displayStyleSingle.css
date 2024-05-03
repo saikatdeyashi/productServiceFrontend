@@ -6,14 +6,18 @@ body {
 }
 
 .create{
-   width: 60%;
+   width: 72%;
    position: relative;
    margin: 30px auto;
    font-size: 25px;
 }
 
+.table{
+  width: 100%;
+}
+
 .input{
-  width: 95%;
+  width: 85%;
   font-size: 17px;
   font-family: sans-serif;
   position: relative;
@@ -46,6 +50,7 @@ body {
   font-size: 14px;
   font-weight: 500;
   height: 40px;
+  width: 80%;
   line-height: 20px;
   list-style: none;
   margin: 20px;
@@ -64,4 +69,35 @@ body {
 .click:hover,
 .click:focus {
   background-color: black;
+}
+
+
+.container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-details {
+    margin-bottom: 20px;
+}
+
+.product-details p {
+    color: #666;
+}
+
+.price {
+  font-size: 25px;
+  font color: red
+}
+
+.product-image {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+    display: block;
 }

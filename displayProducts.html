@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="css/displayStyle.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Available Products</h1>
+    <div class="product-grid" id="product-grid">
+        <!-- Product cards will be dynamically added here -->
+    </div>
+</div>
+
+<script>
+    // Fetch data from the API
+    let localUrl= 'http://localhost:8080/products';
+    let herokuUrl= 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products';
+    let fakeStoreUrl = 'https://fakestoreapi.com/products';
+
+
+    fetch(herokuUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Get the product grid container
+            var productGrid = document.getElementById('product-grid');
+
+            // Loop through the fetched data and create product cards dynamically
+            data.forEach(product => {
+                var productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+
+                // Construct the product card HTML
+                productCard.innerHTML = `
+                    <img class="product-image" src="${product.imageUrl}" alt="${product.title}">
+                    <div class="product-info">
+                        <div class="product-title">${product.title}</div>
+                        <div class="product-price">Rs: ${product.price}</div>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-category">Category: ${product.category.title}</div>
+                    </div>
+                `;
+
+                // Append the product card to the product grid
+                productGrid.appendChild(productCard);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+</script>
+
+</body>
+</html>
