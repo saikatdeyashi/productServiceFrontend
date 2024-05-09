@@ -12,7 +12,7 @@
     <fieldset class="box">
       <legend>Create your own product</legend>
       <label class="fields">Title :</label> <br />
-      <input id="productTitle" class="input" placeholder="Product Title" /> <br />
+      <input id="productTitle" name="title" class="input" placeholder="Product Title" /> <br />
       <label class="fields">Image Link :</label> <br />
       <input id="productImage" name="image" class="input" placeholder="ImageUrl" /> <br />
       <label class="fields">Description :</label> <br />
@@ -78,7 +78,7 @@
       const selfUrl = '';
       const fakeStoreUrl = 'https://fakestoreapi.com/products/';
 
-      fetch(herokuUrl, {
+      fetch(localUrl, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

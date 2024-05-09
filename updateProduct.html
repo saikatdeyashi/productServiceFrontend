@@ -53,7 +53,7 @@
       const selfUrl = '';
       const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);;
 
-      fetch(localUrl, {
+      fetch(herokuUrl, {
           method: "PUT",
           headers: {
             'Content-Type': 'application/json'
