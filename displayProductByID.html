@@ -25,59 +25,60 @@
 
 
   <div class="container">
-    <img src="" class="product-image">
-    <div id="productDetailsContainer" class="product-details">
+    <div class="product-grid" id="product-grid">
+
     </div>
   </div>
 
   <script>
-      document.getElementById('productIdForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+    document.getElementById('productIdForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
 
-        const productId = document.getElementById('productIdInput').value.trim();
+      const productId = document.getElementById('productIdInput').value.trim();
 
-        if (!productId) {
-          alert('Please enter a product ID.');
-          return;
-        }
+      if (!productId) {
+        alert('Please enter a product ID.');
+        return;
+      }
 
-        const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products/' + encodeURIComponent(productId);
-        //const selfUrl = '' + encodeURIComponent(productId);
-        const localUrl = 'http://localhost:8080/products/' + encodeURIComponent(productId);
-        const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);
+      const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products/' + encodeURIComponent(productId);
+      //const selfUrl = '' + encodeURIComponent(productId);
+      const localUrl = 'http://localhost:8080/products/' + encodeURIComponent(productId);
+      const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);
 
-        fetch(localUrl)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-            return response.json();
-          })
-          .then(data => {
-            displayProductDetails(data);
-            displayProductImage(data.imageUrl);
-          })
-          .catch(error => {
-            console.error('Error fetching product details:', error);
-            alert('Failed to fetch product. Please try again.');
-          });
-      });
+      fetch(localUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response.json();
+        })
+        .then(data => {
+          displayProductDetails(data);
 
-      function displayProductDetails(product) {
-        const container = document.getElementById('productDetailsContainer');
+        })
+        .catch(error => {
+          console.error('Error fetching product details:', error);
+          alert('Failed to fetch product. Please try again.');
+        });
+    });
 
-        container.innerHTML = `
-          <h2>${product.title}</h2>
-          <b><p class="price"> ₹ ${product.price}</p></b>
-          <p>${product.description}</p>
+
+    function displayProductDetails(product) {
+      var productCard = document.getElementById('product-grid');
+
+      productCard.innerHTML = `
+          <img class="product-image" src="${product.imageUrl}" alt="${product.title}">
+          <div class="product-info">
+              <div class="product-title">${product.title}</div>
+              <div class="product-price">₹ ${product.price}</div>
+              <div class="product-description">${product.description}</div>
+              <div class="product-category"> ${product.category.title}</div>
+          </div>
       `;
-      }
-
-      function displayProductImage(imageUrl) {
-        const imageElement = document.querySelector('.product-image');
-        imageElement.src = imageUrl;
-      }
-    </script>
+      document.querySelector('.container').style.display = 'block';
+    }
+  </script>
 
 
 

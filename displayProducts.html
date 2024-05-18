@@ -10,7 +10,7 @@
 <body>
 
 <div class="container">
-    <h1>Available Products</h1>
+    <h1>Results</h1>
     <div class="product-grid" id="product-grid">
         <!-- Product cards will be dynamically added here -->
     </div>
@@ -39,9 +39,9 @@
                     <img class="product-image" src="${product.imageUrl}" alt="${product.title}">
                     <div class="product-info">
                         <div class="product-title">${product.title}</div>
-                        <div class="product-price">Rs: ${product.price}</div>
+                        <div class="product-price">₹ ${product.price}</div>
                         <div class="product-description">${product.description}</div>
-                        <div class="product-category">Category: ${product.category.title}</div>
+                        <div class="product-category"> ${product.category.title}</div>
                     </div>
                 `;
 
