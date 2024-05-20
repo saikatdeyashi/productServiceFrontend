@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Complete Your Payment</title>
+  <link rel="stylesheet" href="css/styleForm.css">
+  <link rel="stylesheet" href="css/displayStyleSingle.css">
+  <style>
+    /* Override the image size for this page */
+    .product-grid .product-image {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .container {
+        width: 30%;
+    }
+
+    .product-title {
+        font-size: 28px;
+        font-weight: 150;
+    }
+
+    .product-price{
+        color: #EA4C89;
+    }
+
+    .create{
+       width: 72%;
+       position: relative;
+       margin: 30px auto;
+       font-size: 25px;
+    }
+
+    .input{
+      width: 95%;
+      font-size: 17px;
+      font-family: sans-serif;
+      position: relative;
+      margin: 10px auto;
+      border-style: solid;
+      padding: 7px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="product-grid" id="product-grid">
+
+    </div>
+  </div>
+
+  <div class="customer">
+    <div class="payment-grid" id="payment-grid">
+
+    </div>
+  </div>
+
+  <script>
+    // Function to get query parameters
+    function getQueryParams() {
+      var params = {};
+      var queryString = window.location.search.substring(1);
+      var queryArray = queryString.split('&');
+
+      queryArray.forEach(param => {
+        var pair = param.split('=');
+        params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+      });
+
+      return params;
+    }
+
+    // Get the product ID from the query parameters
+    var params = getQueryParams();
+    var productId = params.productId;
+
+    // Use the product ID as needed
+    console.log('Product ID:', productId);
+
+
+    const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products/' + productId;
+    //const selfUrl = '' + productId;
+    const localUrl = 'http://localhost:8080/products/' + productId;
+    const fakeStoreUrl = 'https://fakestoreapi.com/products/' + productId;
+
+    fetch(localUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        displayProductDetails(data);
+
+      })
+      .catch(error => {
+        console.error('Error fetching product details:', error);
+        alert('Failed to fetch product. Please try again.');
+      });
+
+
+
+    function displayProductDetails(product) {
+      var productCard = document.getElementById('product-grid');
+      var infoBox = document.getElementById('payment-grid');
+
+      productCard.innerHTML = `
+
+        <table>
+        <tr>
+        <th><img class="product-image" src="${product.imageUrl}" alt="${product.title}"></th>
+        <th>
+        <div class="product-info">
+            <div class="product-title">${product.title}</div>
+            <div class="product-price">At Rupees ${product.price} Only</div>
+        </div>
+        </th>
+        </tr>
+        </table>
+
+        `;
+
+      infoBox.innerHTML = `
+        <form action="#" method="post" class="create">
+        <fieldset class="box">
+          <legend>Please Fill The Below Details To Complete The Payment</legend>
+          <label class="fields">Name :</label> <br />
+          <input id="customerName" name="title" class="input" placeholder="Customer Name" /> <br />
+          <label class="fields">Phone Number :</label> <br />
+          <input id="customerPhone" name="image" class="input" placeholder="Customer Mobile" /> <br />
+          <label class="fields">Email :</label> <br />
+          <input id="customerEmail" name="description" class="input" placeholder="Customer Email" /> <br />
+          <label class="fields">Delivery Address :</label> <br />
+          <input id="customerAddress" name="category" class="input" placeholder="Product To Be Devilered At" /> <br />
+
+        <center>
+          <button class="click" type="submit"> Proceed To Pay ₹ ${product.price}</button>
+        </center>
+          </fieldset>
+        </form>
+
+        `;
+
+
+      document.querySelector('.container').style.display = 'block';
+    }
+
+
+
+
+
+
+
+
+
+    // You can use the product ID to fetch product details, display them, or handle the payment process
+  </script>
+
+</body>
