@@ -75,10 +75,10 @@
 
       const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products';
       const localUrl = 'http://localhost:8080/products';
-      const selfUrl = '';
+      const selfUrl = 'https://36e3-103-67-97-160.ngrok-free.app/products';
       const fakeStoreUrl = 'https://fakestoreapi.com/products/';
 
-      fetch(localUrl, {
+      fetch(selfUrl, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

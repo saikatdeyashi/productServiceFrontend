@@ -42,11 +42,11 @@
       }
 
       const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products/' + encodeURIComponent(productId);
-      //const selfUrl = '' + encodeURIComponent(productId);
+      const selfUrl = 'https://36e3-103-67-97-160.ngrok-free.app/' + encodeURIComponent(productId);
       const localUrl = 'http://localhost:8080/products/' + encodeURIComponent(productId);
       const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);
 
-      fetch(localUrl)
+      fetch(selfUrl)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
