@@ -95,7 +95,7 @@
     const localUrl = 'http://localhost:8080/products/' + productId;
     const fakeStoreUrl = 'https://fakestoreapi.com/products/' + productId;
 
-    fetch(localUrl)
+    fetch(herokuUrl)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

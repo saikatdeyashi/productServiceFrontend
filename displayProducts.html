@@ -23,10 +23,10 @@
     const localUrl = 'http://localhost:8080/products';
     const herokuUrl = 'https://saikat-product-services-f1726f7df2c4.herokuapp.com/products';
     const fakeStoreUrl = 'https://fakestoreapi.com/products';
-    const selfUrl = 'https://85c4-103-67-97-160.ngrok-free.app/products/';
+    //const selfUrl = '';
 
 
-    fetch(selfUrl)
+    fetch(herokuUrl)
       .then(response => response.json())
       .then(data => {
         // Get the product grid container
