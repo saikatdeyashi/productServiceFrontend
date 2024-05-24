@@ -118,3 +118,34 @@ body {
         padding: 30px;
     }
 }
+
+/* Mobile screens (max-width: 767px) */
+@media (max-width: 767px) {
+    .create {
+        width: 95%;
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .box {
+        padding: 10px;
+    }
+
+    .box legend {
+        font-size: 18px;
+    }
+
+    .fields {
+        font-size: 14px;
+    }
+
+    .input {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .click {
+        font-size: 14px;
+        margin-top: 15px;
+    }
+}
