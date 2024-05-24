@@ -1,37 +1,35 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f2f5;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
 }
 
-.create{
-   width: 60%;
-   position: relative;
-   margin: 30px auto;
-   font-size: 25px;
+.create {
+  width: 60%;
+  position: relative;
+  margin: 30px auto;
+  font-size: 25px;
 }
 
-.input{
+.input {
   width: 97%;
   font-size: 17px;
   font-family: sans-serif;
   position: relative;
   margin: 10px auto;
   border-style: solid;
-  padding: 10px;
+  padding: 7px;
 }
 
-.fields{
+.fields {
   font-size: 18px;
   font-family: sans-serif;
-
 }
 
-.box{
+.box {
   border-color: #EA4C89;
   font-family: sans-serif;
-
 }
 
 .click {
@@ -63,33 +61,60 @@ body {
 
 .click:hover,
 .click:focus {
-  background-color: black;
+  background-color: black;
 }
 
 /* Media Queries for Responsive Design */
+/* For tablets and larger screens (768px and above) */
+@media (min-width: 768px) {
+  .create {
+    width: 60%;
+    font-size: 22px;
+  }
 
+  .input {
+    font-size: 16px;
+    margin: 10px;
+    outline: none;
+    position: relative;
+  }
+
+  .fields {
+    font-size: 16px;
+    margin: 10px;
+    outline: none;
+    position: relative;
+  }
+
+  .click {
+    width: 70%;
+    font-size: 16px;
+  }
+}
 
 /* For mobile screens (up to 767px) */
 @media (max-width: 767px) {
-    .create {
-        width: 90%;
-        font-size: 20px;
-        margin: 20px auto;
-    }
+  .create {
+    width: 90%;
+    font-size: 20px;
+    margin: 20px auto;
+  }
 
-    .input {
-        width: 95%;
-        font-size: 14px;
-        padding: 15px;
-    }
+  .input {
+    margin: 8px;
+    position: relative;
+    font-size: 14px;
+  }
 
-    .fields {
-        font-size: 14px;
-    }
+  .fields {
+    margin: 8px;
+    position: relative;
+    font-size: 14px;
+  }
 
-    .click {
-        width: 100%;
-        font-size: 14px;
-        margin: 10px 0;
-    }
+  .click {
+    width: 100%;
+    font-size: 14px;
+    margin: 10px 0;
+  }
 }
