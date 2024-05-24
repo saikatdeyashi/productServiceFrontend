@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Update a Product</title>
   <link rel="stylesheet" href="css/styleForm.css">
 </head>
@@ -53,7 +54,7 @@
       //const selfUrl = '';
       const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);;
 
-      fetch(herokuUrl, {
+      fetch(localUrl, {
           method: "PUT",
           headers: {
             'Content-Type': 'application/json'

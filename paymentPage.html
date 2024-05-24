@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Complete Your Payment</title>
   <link rel="stylesheet" href="css/styleForm.css">
   <link rel="stylesheet" href="css/displayStyleSingle.css">
@@ -95,7 +96,7 @@
     const localUrl = 'http://localhost:8080/products/' + productId;
     const fakeStoreUrl = 'https://fakestoreapi.com/products/' + productId;
 
-    fetch(herokuUrl)
+    fetch(localUrl)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

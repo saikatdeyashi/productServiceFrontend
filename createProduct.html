@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Product</title>
   <link rel="stylesheet" href="css/styleForm.css">
 </head>
@@ -78,7 +79,7 @@
       //const selfUrl = '';
       const fakeStoreUrl = 'https://fakestoreapi.com/products/';
 
-      fetch(herokuUrl, {
+      fetch(localUrl, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Get a Product by ID</title>
   <link rel="stylesheet" href="css/displayStyleSingle.css">
 </head>
@@ -46,7 +47,7 @@
       const localUrl = 'http://localhost:8080/products/' + encodeURIComponent(productId);
       const fakeStoreUrl = 'https://fakestoreapi.com/products/' + encodeURIComponent(productId);
 
-      fetch(herokuUrl)
+      fetch(localUrl)
         .then(response => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
