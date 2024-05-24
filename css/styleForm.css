@@ -13,13 +13,13 @@ body {
 }
 
 .input{
-  width: 95%;
+  width: 97%;
   font-size: 17px;
   font-family: sans-serif;
   position: relative;
   margin: 10px auto;
   border-style: solid;
-  padding: 7px;
+  padding: 10px;
 }
 
 .fields{
@@ -68,27 +68,6 @@ body {
 
 /* Media Queries for Responsive Design */
 
-/* For tablets and larger screens (768px and above) */
-@media (min-width: 768px) {
-    .create {
-        width: 70%;
-        font-size: 22px;
-    }
-
-    .input {
-        width: 90%;
-        font-size: 16px;
-    }
-
-    .fields {
-        font-size: 16px;
-    }
-
-    .click {
-        width: 70%;
-        font-size: 16px;
-    }
-}
 
 /* For mobile screens (up to 767px) */
 @media (max-width: 767px) {
@@ -99,8 +78,9 @@ body {
     }
 
     .input {
-        width: 100%;
+        width: 95%;
         font-size: 14px;
+        padding: 15px;
     }
 
     .fields {
