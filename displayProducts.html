@@ -12,7 +12,9 @@
 <body>
 
   <div class="container">
-    <h1>Results</h1>
+    <center>
+      <h1>Results</h1>
+    </center>
     <div class="product-grid" id="product-grid">
       <!-- Product cards will be dynamically added here -->
     </div>
@@ -26,7 +28,7 @@
     //const selfUrl = '';
 
 
-    fetch(localUrl)
+    fetch(herokuUrl)
       .then(response => response.json())
       .then(data => {
         // Get the product grid container

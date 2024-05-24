@@ -1,150 +1,70 @@
+/* Basic styles for body */
 body {
-    font-family: sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-
-.box{
-  border-color: #EA4C89;
-  font-family: sans-serif;
-  width: 80%;
-  position: relative;
-  margin: 30px auto;
-  font-size: 25px;
-  font-family: sans-serif;
-
+/* Container and fieldset styling */
+.box {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #EA4C89;
 }
 
-
-.call,
-.call:after {
-  width: 95%;
-  height: 70%;
-  margin: 25px;
-  line-height: 78px;
-  font-size: 20px;
-  font-family: sans-serif;
-  background: linear-gradient(45deg, transparent 5%, #EA4C89 5%);
-  border: 0;
-  color: #fff;
-  letter-spacing: 3px;
-  box-shadow: 6px 0px 0px #00E6F6;
-  outline: transparent;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.call:after {
-  --slice-0: inset(50% 50% 50% 50%);
-  --slice-1: inset(80% -6px 0 0);
-  --slice-2: inset(50% -6px 30% 0);
-  --slice-3: inset(10% -6px 85% 0);
-  --slice-4: inset(40% -6px 43% 0);
-  --slice-5: inset(80% -6px 5% 0);
-
-  content: 'ALTERNATE TEXT';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #EA4C89 5%);
-  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
-  clip-path: var(--slice-0);
+/* Button styling */
+.call {
+    width: 100%;
+    background-color: #EA4C89;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+    transition: background-color 0.3s ease;
 }
 
-.call:hover:after {
-  animation: 1s glitch;
-  animation-timing-function: steps(2, end);
+.call:hover,
+.call:focus {
+    background-color: #333;
 }
 
-@keyframes glitch {
-  0% {
-    clip-path: var(--slice-1);
-    transform: translate(-20px, -10px);
-  }
-  10% {
-    clip-path: var(--slice-3);
-    transform: translate(10px, 10px);
-  }
-  20% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 10px);
-  }
-  30% {
-    clip-path: var(--slice-3);
-    transform: translate(0px, 5px);
-  }
-  40% {
-    clip-path: var(--slice-2);
-    transform: translate(-5px, 0px);
-  }
-  50% {
-    clip-path: var(--slice-3);
-    transform: translate(5px, 0px);
-  }
-  60% {
-    clip-path: var(--slice-4);
-    transform: translate(5px, 10px);
-  }
-  70% {
-    clip-path: var(--slice-2);
-    transform: translate(-10px, 10px);
-  }
-  80% {
-    clip-path: var(--slice-5);
-    transform: translate(20px, -10px);
-  }
-  90% {
-    clip-path: var(--slice-1);
-    transform: translate(-10px, 0px);
-  }
-  100% {
-    clip-path: var(--slice-1);
-    transform: translate(0);
-  }
-}
-
-@media (min-width: 768px) {
-  .call,
-  .call:after {
-    width: 95%;
-    height: 70%;
-    line-height: 88px;
-  }
-}
-
-/* Media Queries for Responsive Design */
-
-/* For tablets and larger screens (768px and above) */
-@media (min-width: 768px) {
-    .call,
-    .call:after {
-        width: 90%;
-        height: 80%;
-        line-height: 88px;
-    }
-}
-
-/* For mobile screens (up to 767px) */
-@media (max-width: 767px) {
+/* Responsive adjustments */
+@media (min-width: 576px) {
     .box {
-        width: 95%;
-        margin: 20px auto;
-        font-size: 20px;
+        max-width: 400px;
     }
+}
 
-    .call,
-    .call:after {
-        width: 100%;
-        height: auto;
-        margin: 15px;
-        line-height: 60px;
-        font-size: 18px;
+@media (min-width: 768px) {
+    .box {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 992px) {
+    .box {
+        max-width: 600px;
     }
 }
